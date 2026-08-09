@@ -1,0 +1,13 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="640" rx="48" fill="#F1F7FA"/>
+  <circle cx="320" cy="277" r="132" fill="#D8EDF7"/>
+  <path d="M246 230H394L424 278V373C424 387.359 412.359 399 398 399H242C227.641 399 216 387.359 216 373V278L246 230Z" fill="#075985"/>
+  <path d="M246 230H394L424 278H216L246 230Z" fill="#0B85C6"/>
+  <rect x="257" y="299" width="126" height="52" rx="10" fill="white" fill-opacity="0.92"/>
+  <path d="M287 326H353" stroke="#0B85C6" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="258" cy="375" r="12" fill="#71C4E8"/>
+  <circle cx="382" cy="375" r="12" fill="#71C4E8"/>
+  <path d="M221 459H419" stroke="#9CCFE7" stroke-width="2" stroke-linecap="round"/>
+  <text x="320" y="497" text-anchor="middle" fill="#075985" font-family="Arial, sans-serif" font-size="22" font-weight="700">IMAGE PRODUIT</text>
+  <text x="320" y="528" text-anchor="middle" fill="#64748B" font-family="Arial, sans-serif" font-size="16">Bientôt disponible</text>
+</svg>
