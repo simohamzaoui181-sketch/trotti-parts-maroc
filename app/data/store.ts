@@ -1,4 +1,4 @@
-export const contact = { whatsapp: "212600000000", displayWhatsapp: "212 600 000 000" };
+export const contact = { whatsapp: "212781575905", displayWhatsapp: "212 781575905" };
 
 export const categories = [
   { name: "Pneus", icon: "wheel", color: "bg-orange-100" }, { name: "Chambres à air", icon: "tube", color: "bg-sky-100" },

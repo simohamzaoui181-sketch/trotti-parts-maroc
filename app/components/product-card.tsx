@@ -7,7 +7,8 @@ import { contact, type Product } from "../data/store";
 type ProductCardProps = { product: Product; onAddToCart: () => void };
 
 export function ProductCard({ product, onAddToCart }: ProductCardProps) {
-  const whatsappMessage = `Bonjour TROTTI PARTS MAROC, je souhaite commander : ${product.name} (${product.price} DH).`;
+  const quantity = 1;
+  const whatsappMessage = `Bonjour, je souhaite commander :\nProduit : ${product.name}\nPrix : ${product.price} DH\nQuantit\u00e9 : ${quantity}`;
   const whatsappLink = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
