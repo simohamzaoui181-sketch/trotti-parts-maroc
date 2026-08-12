@@ -22,6 +22,9 @@ export type Product = {
 
 export const products: Product[] = [
   { name: "Pneu Tubeless 80/65-6", price: 120, stock: "En stock", visual: "tire", image: "/products/pneu-tubeless-8065-6.png", category: "Pneus", compatibleModels: ["Ninebot G30", "Kugoo M4"], badge: "Meilleure vente" },
+  { name: "Pneu 10×2.70-6.5 Tubeless Smartgyro / UrbanGlide", price: 120, stock: "En stock", visual: "tire", image: "/products/pneu-10x270-65-tubeless.png", category: "Pneus", compatibleModels: ["Smartgyro", "UrbanGlide"] },
+  { name: "Pneu 85/65-6.5 Bison EcoExtrem", price: 120, stock: "En stock", visual: "tire", image: "/products/pneu-85x65-65-bison-ecoextrem.png", category: "Pneus", compatibleModels: ["Bison EcoExtrem"] },
+  { name: "Pneu 60/70-6.5 Tubeless", price: 120, stock: "En stock", visual: "tire", image: "/products/pneu-60x70-65-tubeless.png", category: "Pneus", compatibleModels: ["Universel 6.5"] },
   { name: "Levier de frein Xiaomi", price: 40, stock: "En stock", visual: "brakes", image: "/products/levier-frein-xiaomi.png", category: "Freins", compatibleModels: ["Xiaomi M365", "Ninebot ES"] },
   { name: "Chargeur LiitoKala 42V/2A", price: 110, stock: "En stock", visual: "charger", image: "/products/chargeur-42v-2a.png", category: "Chargeurs", compatibleModels: ["Xiaomi M365", "Pro 2"], badge: "Nouveau" },
   { name: "Dashboard Xiaomi M365 Pro / Pro 1", price: 120, stock: "En stock", visual: "display", image: "/products/dashboard-m365-pro.png", category: "Écrans", compatibleModels: ["Xiaomi M365", "Pro 2"] },
