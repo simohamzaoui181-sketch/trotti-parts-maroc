@@ -34,12 +34,12 @@ export default function Home() {
             aria-label="Trotti Parts Maroc"
           >
             <img
-              src="/logo.png"
-              alt="Trotti Parts Maroc"
-              width={180}
-              height={60}
-              className="block h-14 w-auto object-contain"
-            />
+  src="/logo.png"
+  alt="Trotti Parts Maroc"
+  width={180}
+  height={100}
+  className="block h-16 w-auto object-contain"
+/>
           </a>
 
           {/* NAVIGATION */}
@@ -164,17 +164,17 @@ export default function Home() {
           <div className="relative mx-auto w-full max-w-[520px]">
             <div className="absolute -inset-10 -z-10 rounded-full bg-sky-300/25 blur-3xl" />
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-[#0a5176] p-4 shadow-2xl shadow-sky-950/25 sm:p-6">
+            <div className="relative flex h-[310px] items-center justify-center overflow-hidden rounded-[1.5rem] bg-white sm:h-[355px]">
               <div className="absolute right-0 top-0 h-40 w-40 rounded-bl-[5rem] bg-[#0b85c6]" />
 
               <div className="relative flex h-[310px] items-center justify-center overflow-hidden rounded-[1.5rem] bg-white sm:h-[355px]">
                 <img
-                  src="/logo.png"
-                  alt="Trotti Parts Maroc"
-                  width={400}
-                  height={300}
-                  className="relative z-10 max-h-[220px] w-auto max-w-[80%] object-contain sm:max-h-[260px]"
-                />
+  src="/logo.png"
+  alt="Trotti Parts Maroc"
+  width={600}
+  height={500}
+  className="relative z-10 max-h-[280px] w-auto max-w-[90%] object-contain sm:max-h-[340px]"
+/>
               </div>
 
               <div className="relative mt-4 flex items-center justify-between px-1 text-white">
