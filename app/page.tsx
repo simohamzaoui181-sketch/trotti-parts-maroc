@@ -103,6 +103,7 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 opacity-60 [background-image:radial-gradient(#9cd3ef_1px,transparent_1px)] [background-size:24px_24px]" />
 
         <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-14 sm:px-6 sm:pt-20 lg:grid-cols-[1.04fr_.96fr] lg:items-center lg:gap-16 lg:px-8 lg:py-24">
+          {/* HERO TEXT */}
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3 py-1.5 text-xs font-bold text-[#075985] shadow-sm">
               <span className="size-2 rounded-full bg-[#1faa59]" />
@@ -166,23 +167,14 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-[#0a5176] p-4 shadow-2xl shadow-sky-950/25 sm:p-6">
               <div className="absolute right-0 top-0 h-40 w-40 rounded-bl-[5rem] bg-[#0b85c6]" />
 
-              <div className="relative h-[310px] overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-[#d8eef9] via-[#f8fbfd] to-[#8fc9e7] sm:h-[355px]">
-                <div className="absolute -bottom-20 -left-10 h-52 w-[130%] rotate-[-9deg] rounded-t-[100%] bg-slate-800" />
-
-                <div className="absolute left-8 top-8 rounded-lg bg-white/85 px-3 py-2 text-[10px] font-black tracking-[0.14em] text-[#075985] shadow-sm">
-                  PIÈCES D&apos;ORIGINE &amp; COMPATIBLES
-                </div>
-
-                <div className="absolute bottom-11 left-1/2 h-[180px] w-[270px] -translate-x-1/2 sm:h-[210px] sm:w-[315px]">
-                  <div className="absolute bottom-0 left-[19px] size-[68px] rounded-full border-[13px] border-slate-950 bg-slate-500 shadow-xl" />
-                  <div className="absolute bottom-0 right-[19px] size-[68px] rounded-full border-[13px] border-slate-950 bg-slate-500 shadow-xl" />
-                  <div className="absolute bottom-[58px] left-[55px] h-3 w-[207px] rounded-full bg-slate-950" />
-                  <div className="absolute bottom-[67px] left-[95px] h-3 w-[135px] rotate-[-22deg] rounded-full bg-[#101827]" />
-                  <div className="absolute bottom-[80px] left-[120px] h-[108px] w-3 rotate-[10deg] rounded-full bg-[#101827]" />
-                  <div className="absolute bottom-[173px] left-[128px] h-3 w-[88px] rotate-[-32deg] rounded-full bg-[#101827]" />
-                  <div className="absolute bottom-[185px] left-[205px] h-3 w-12 rounded-full bg-[#101827]" />
-                  <div className="absolute bottom-[70px] left-[81px] h-7 w-24 -rotate-[22deg] rounded-full bg-[#0b85c6]" />
-                </div>
+              <div className="relative flex h-[310px] items-center justify-center overflow-hidden rounded-[1.5rem] bg-white sm:h-[355px]">
+                <img
+                  src="/logo.png"
+                  alt="Trotti Parts Maroc"
+                  width={400}
+                  height={300}
+                  className="relative z-10 max-h-[220px] w-auto max-w-[80%] object-contain sm:max-h-[260px]"
+                />
               </div>
 
               <div className="relative mt-4 flex items-center justify-between px-1 text-white">
@@ -190,8 +182,7 @@ export default function Home() {
                   Votre spécialiste trottinette
                 </span>
 
-                <span className="flex items-center gap-1 text-xs font-bold">
-                  <Icon name="pin" className="size-4" />
+                <span className="text-xs font-bold">
                   Maroc
                 </span>
               </div>
@@ -208,7 +199,10 @@ export default function Home() {
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="section-eyebrow">Trouver la bonne pièce</p>
-            <h2 className="section-title">Explorez nos catégories</h2>
+
+            <h2 className="section-title">
+              Explorez nos catégories
+            </h2>
           </div>
 
           <a
@@ -229,7 +223,10 @@ export default function Home() {
               <span
                 className={`grid size-11 place-items-center rounded-xl ${category.color} text-[#075985] transition group-hover:scale-110`}
               >
-                <Icon name={category.icon} className="size-6" />
+                <Icon
+                  name={category.icon}
+                  className="size-6"
+                />
               </span>
 
               <h3 className="mt-4 text-sm font-extrabold sm:text-base">
@@ -266,7 +263,10 @@ export default function Home() {
                 key={item.title}
                 className="border-l border-sky-400/35 pl-4"
               >
-                <Icon name={item.icon} className="size-6 text-sky-300" />
+                <Icon
+                  name={item.icon}
+                  className="size-6 text-sky-300"
+                />
 
                 <h3 className="mt-3 text-sm font-extrabold">
                   {item.title}
@@ -311,14 +311,18 @@ export default function Home() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <p className="section-eyebrow">Professionnels</p>
+            <p className="section-eyebrow">
+              Professionnels
+            </p>
 
-            <h2 className="section-title">Vous êtes réparateur ?</h2>
+            <h2 className="section-title">
+              Vous êtes réparateur ?
+            </h2>
 
             <p className="mt-5 max-w-lg text-base leading-7 text-slate-600">
-              Profitez de tarifs professionnels sur les commandes en quantité.
-              Nous vous accompagnons avec les pièces dont votre atelier a
-              besoin.
+              Profitez de tarifs professionnels sur les commandes en
+              quantité. Nous vous accompagnons avec les pièces dont
+              votre atelier a besoin.
             </p>
 
             <a
@@ -327,7 +331,11 @@ export default function Home() {
               rel="noreferrer"
               className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#075985] px-5 py-3.5 text-sm font-bold text-white transition hover:bg-[#064b70]"
             >
-              <Icon name="whatsapp" className="size-5" />
+              <Icon
+                name="whatsapp"
+                className="size-5"
+              />
+
               Demander un tarif professionnel
             </a>
           </div>
@@ -338,11 +346,16 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6 rounded-3xl border border-sky-100 bg-white px-6 py-10 text-center shadow-sm sm:px-10">
           <span className="grid size-14 place-items-center rounded-2xl bg-sky-100 text-[#075985]">
-            <Icon name="truck" className="size-7" />
+            <Icon
+              name="truck"
+              className="size-7"
+            />
           </span>
 
           <div>
-            <p className="section-eyebrow">Expédition</p>
+            <p className="section-eyebrow">
+              Expédition
+            </p>
 
             <h2 className="section-title">
               Livraison partout au Maroc
@@ -362,22 +375,29 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" className="bg-slate-950 text-slate-300">
+      <footer
+        id="contact"
+        className="bg-slate-950 text-slate-300"
+      >
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           <div>
             <p className="text-lg font-black text-white">
               TROTTI PARTS{" "}
-              <span className="text-sky-400">MAROC</span>
+              <span className="text-sky-400">
+                MAROC
+              </span>
             </p>
 
             <p className="mt-4 max-w-xs text-sm leading-6 text-slate-400">
-              Votre spécialiste des pièces de trottinettes électriques au
-              Maroc.
+              Votre spécialiste des pièces de trottinettes électriques
+              au Maroc.
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-white">Navigation</h3>
+            <h3 className="text-sm font-bold text-white">
+              Navigation
+            </h3>
 
             <ul className="mt-4 space-y-2 text-sm">
               {navigation.map((item) => (
@@ -394,7 +414,9 @@ export default function Home() {
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-white">Contact</h3>
+            <h3 className="text-sm font-bold text-white">
+              Contact
+            </h3>
 
             <ul className="mt-4 space-y-3 text-sm">
               <li className="flex items-center gap-2">
@@ -402,6 +424,7 @@ export default function Home() {
                   name="whatsapp"
                   className="size-4 text-[#35c96d]"
                 />
+
                 WhatsApp : +{contact.displayWhatsapp}
               </li>
 
@@ -410,16 +433,20 @@ export default function Home() {
                   name="pin"
                   className="size-4 text-sky-400"
                 />
+
                 Mrirt, Maroc
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-white">Livraison</h3>
+            <h3 className="text-sm font-bold text-white">
+              Livraison
+            </h3>
 
             <p className="mt-4 text-sm leading-6 text-slate-400">
-              Expédition vers Mrirt, Khénifra, Kénitra et partout au Maroc.
+              Expédition vers Mrirt, Khénifra, Kénitra et partout au
+              Maroc.
             </p>
           </div>
         </div>
