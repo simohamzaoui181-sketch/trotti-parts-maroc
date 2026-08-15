@@ -1,30 +1,33 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = "https://trotti-parts-maroc.vercel.app";
+const SITE_URL = "https://trotti-parts-maroc.vercel.app";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
 
   title: {
     default:
-      "Trotti Parts Maroc | Pièces pour trottinettes électriques",
+      "Trotti Parts Maroc | Pièces de trottinette électrique au Maroc",
     template: "%s | Trotti Parts Maroc",
   },
 
   description:
-    "Trotti Parts Maroc propose des pièces et accessoires pour trottinettes électriques au Maroc : pneus, freins, chargeurs, dashboards et accessoires. Commande rapide sur WhatsApp.",
+    "Achetez vos pièces de trottinette électrique au Maroc : pneus, freins, chargeurs, dashboards, contrôleurs et accessoires. Stock local, livraison partout au Maroc et commande rapide sur WhatsApp.",
 
   keywords: [
-    "Trotti Parts Maroc",
     "pièces trottinette Maroc",
     "pièces trottinette électrique Maroc",
-    "pneus trottinette Maroc",
+    "pièces détachées trottinette Maroc",
+    "pneu trottinette Maroc",
+    "pneus trottinette électrique Maroc",
     "chargeur trottinette Maroc",
     "frein trottinette Maroc",
-    "dashboard Xiaomi M365 Maroc",
+    "dashboard trottinette Maroc",
+    "contrôleur trottinette Maroc",
     "Xiaomi M365 Maroc",
-    "Ninebot Maroc",
+    "Xiaomi Pro 2 Maroc",
+    "Trotti Parts Maroc",
   ],
 
   authors: [
@@ -35,7 +38,6 @@ export const metadata: Metadata = {
 
   creator: "Trotti Parts Maroc",
   publisher: "Trotti Parts Maroc",
-  applicationName: "Trotti Parts Maroc",
 
   alternates: {
     canonical: "/",
@@ -44,21 +46,21 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_MA",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "Trotti Parts Maroc",
 
     title:
-      "Trotti Parts Maroc | Pièces pour trottinettes électriques",
+      "Trotti Parts Maroc | Pièces de trottinette électrique au Maroc",
 
     description:
-      "Pièces et accessoires pour trottinettes électriques disponibles au Maroc. Pneus, freins, chargeurs, dashboards et accessoires.",
+      "Pièces et accessoires pour trottinettes électriques disponibles au Maroc : pneus, freins, chargeurs, dashboards et accessoires. Livraison partout au Maroc.",
 
     images: [
       {
         url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "Trotti Parts Maroc - Pièces pour trottinettes électriques",
+        alt: "Trotti Parts Maroc - Pièces de trottinettes électriques",
       },
     ],
   },
@@ -67,10 +69,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
 
     title:
-      "Trotti Parts Maroc | Pièces pour trottinettes électriques",
+      "Trotti Parts Maroc | Pièces de trottinette électrique au Maroc",
 
     description:
-      "Pièces et accessoires pour trottinettes électriques au Maroc.",
+      "Pièces détachées et accessoires pour trottinettes électriques au Maroc. Livraison partout au Maroc et commande WhatsApp.",
 
     images: ["/logo.png"],
   },
@@ -87,20 +89,13 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-  },
-
-  category: "ecommerce",
 };
 
 export default function RootLayout({
   children,
 }: LayoutProps<"/">) {
   return (
-    <html lang="fr">
+    <html lang="fr-MA">
       <body>{children}</body>
     </html>
   );
