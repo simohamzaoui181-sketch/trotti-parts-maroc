@@ -1,3 +1,7 @@
+"use client";
+
+
+import { useEffect, useState } from "react";
 import { Icon } from "./components/ui-icon";
 import { ShopSection } from "./components/shop-section";
 import { categories, contact, serviceHighlights } from "./data/store";
@@ -11,7 +15,50 @@ const navigation = [
 ];
 
 export default function Home() {
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    function handleCartUpdate(event: Event) {
+      const customEvent = event as CustomEvent<{ count: number }>;
+      setCartCount(customEvent.detail.count);
+    }
+
+    window.addEventListener("cart-updated", handleCartUpdate);
+
+    return () => {
+      window.removeEventListener("cart-updated", handleCartUpdate);
+    };
+  }, []);
+
+  function handleSearchClick() {
+    const search = document.getElementById("product-search");
+
+    if (!search) return;
+
+    search.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+
+    setTimeout(() => {
+      (search as HTMLInputElement).focus();
+    }, 400);
+  }
+
+  function handleCartClick() {
+    const cart = document.getElementById("cart-section");
+
+    if (!cart) return;
+
+    cart.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }
+
   const whatsappLink = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
+    "Bonjour TROTTI PARTS MAROC, je souhaite commander des pièces."
+  )}`;  const whatsappLink = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
     "Bonjour TROTTI PARTS MAROC, je souhaite commander des pièces."
   )}`;
 
@@ -65,42 +112,65 @@ export default function Home() {
           </nav>
 
           {/* ACTIONS */}
-          <div className="flex items-center gap-2">
-            <button
-              className="hidden size-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:border-sky-200 hover:bg-sky-50 sm:grid"
-              aria-label="Rechercher"
-            >
-              <Icon name="search" className="size-[18px]" />
-            </button>
+<div className="flex items-center gap-2">
 
-            <button
-              className="relative grid size-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:border-sky-200 hover:bg-sky-50"
-              aria-label="Panier"
-            >
-              <Icon name="bag" className="size-[18px]" />
-              <span className="absolute -right-1 -top-1 grid size-4 place-items-center rounded-full bg-[#0b85c6] text-[9px] font-black text-white">
-                0
-              </span>
-            </button>
+  {/* SEARCH */}
+  <button
+    type="button"
+    onClick={handleSearchClick}
+    className="hidden size-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:border-sky-200 hover:bg-sky-50 sm:grid"
+    aria-label="Rechercher"
+  >
+    <Icon
+      name="search"
+      className="size-[18px]"
+    />
+  </button>
 
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noreferrer"
-              className="hidden items-center gap-2 rounded-xl bg-[#18a957] px-4 py-2.5 text-xs font-black text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#128b47] hover:shadow-md sm:flex"
-            >
-              <Icon name="whatsapp" className="size-4" />
-              WhatsApp
-            </a>
+  {/* PANIER */}
+  <button
+    type="button"
+    onClick={handleCartClick}
+    className="relative grid size-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:border-sky-200 hover:bg-sky-50"
+    aria-label={`Panier (${cartCount} articles)`}
+  >
+    <Icon
+      name="bag"
+      className="size-[18px]"
+    />
 
-            <button
-              className="grid size-10 place-items-center rounded-xl border border-slate-200 text-slate-700 transition hover:bg-slate-50 lg:hidden"
-              aria-label="Ouvrir le menu"
-            >
-              <Icon name="menu" className="size-5" />
-            </button>
-          </div>
-        </div>
+    <span className="absolute -right-1 -top-1 grid size-4 place-items-center rounded-full bg-[#0b85c6] text-[9px] font-black text-white">
+      {cartCount}
+    </span>
+  </button>
+
+  {/* WHATSAPP */}
+  <a
+    href={whatsappLink}
+    target="_blank"
+    rel="noreferrer"
+    className="hidden items-center gap-2 rounded-xl bg-[#18a957] px-4 py-2.5 text-xs font-black text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#128b47] hover:shadow-md sm:flex"
+  >
+    <Icon
+      name="whatsapp"
+      className="size-4"
+    />
+    WhatsApp
+  </a>
+
+  {/* MOBILE MENU */}
+  <button
+    type="button"
+    className="grid size-10 place-items-center rounded-xl border border-slate-200 text-slate-700 transition hover:bg-slate-50 lg:hidden"
+    aria-label="Ouvrir le menu"
+  >
+    <Icon
+      name="menu"
+      className="size-5"
+    />
+  </button>
+
+</div>
       </header>
 
       {/* HERO */}
