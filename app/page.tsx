@@ -56,9 +56,7 @@ export default function Home() {
     });
   }
 
-  const whatsappLink = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
-    "Bonjour TROTTI PARTS MAROC, je souhaite commander des pièces."
-  )}`;  const whatsappLink = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
+    const whatsappLink = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
     "Bonjour TROTTI PARTS MAROC, je souhaite commander des pièces."
   )}`;
 
@@ -168,7 +166,9 @@ export default function Home() {
       name="menu"
       className="size-5"
     />
-  </button>
+    </button>
+
+</div>
 
 </div>
       </header>
