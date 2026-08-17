@@ -323,8 +323,403 @@ export default function Home() {
       </div>
 
       {/* =========================================================
-          HERO
-      ========================================================= */}
+    HERO
+========================================================= */}
+<section
+  id="accueil"
+  className="px-4 pb-6 pt-2 sm:px-6 lg:px-8"
+>
+  <div
+    className="
+      relative mx-auto min-h-[560px] max-w-7xl
+      overflow-hidden rounded-[2rem]
+      bg-[#001d3d]
+      shadow-[0_25px_70px_rgba(0,29,61,0.25)]
+    "
+  >
+
+    {/* =====================================================
+        BACKGROUND
+    ===================================================== */}
+
+    <div
+      className="
+        absolute inset-0
+        bg-[radial-gradient(circle_at_80%_50%,rgba(0,110,255,0.45),transparent_38%),linear-gradient(110deg,#00152e_0%,#002b5b_55%,#003f91_100%)]
+      "
+    />
+
+    {/* Blue curves */}
+    <div
+      className="
+        absolute right-[-15%] top-[12%]
+        h-[450px] w-[800px]
+        rounded-full
+        border border-blue-400/20
+        rotate-[-15deg]
+      "
+    />
+
+    <div
+      className="
+        absolute right-[-10%] top-[35%]
+        h-[350px] w-[700px]
+        rounded-full
+        border border-blue-400/20
+        rotate-[-15deg]
+      "
+    />
+
+    {/* Glow */}
+    <div
+      className="
+        absolute right-[10%] top-[30%]
+        h-[350px] w-[550px]
+        rounded-full
+        bg-blue-500/20
+        blur-[100px]
+      "
+    />
+
+    {/* =====================================================
+        CONTENT
+    ===================================================== */}
+
+    <div
+      className="
+        relative z-10
+        grid min-h-[560px]
+        items-center
+        gap-6
+        px-7 py-12
+        sm:px-10
+        lg:grid-cols-[0.9fr_1.1fr]
+        lg:px-12
+      "
+    >
+
+      {/* ===================================================
+          HERO TEXT
+      =================================================== */}
+
+      <div className="relative z-20 max-w-2xl">
+
+        {/* Badge */}
+        <span
+          className="
+            inline-flex
+            rounded-lg
+            bg-[#0877ed]
+            px-4 py-2
+            text-[11px]
+            font-black
+            uppercase
+            tracking-wide
+            text-white
+            shadow-lg
+            shadow-blue-500/20
+          "
+        >
+          Pièces & accessoires
+        </span>
+
+        {/* Title */}
+        <h1
+          className="
+            mt-6
+            text-4xl
+            font-black
+            uppercase
+            leading-[0.98]
+            tracking-tight
+            text-white
+            sm:text-5xl
+            lg:text-[4.2rem]
+          "
+        >
+          Pour trottinettes
+
+          <span
+            className="
+              mt-2
+              block
+              text-[#1685ff]
+            "
+          >
+            électriques
+          </span>
+        </h1>
+
+        {/* Blue line */}
+        <div
+          className="
+            mt-6
+            h-1
+            w-16
+            rounded-full
+            bg-[#0877ed]
+          "
+        />
+
+        {/* Description */}
+        <p
+          className="
+            mt-6
+            max-w-xl
+            text-base
+            leading-7
+            text-blue-50/90
+            sm:text-lg
+          "
+        >
+          Qualité, fiabilité et performance pour toutes les
+          marques de trottinettes.
+        </p>
+
+        {/* =================================================
+            FEATURES
+        ================================================= */}
+
+        <div
+          className="
+            mt-8
+            grid
+            gap-4
+            sm:grid-cols-3
+          "
+        >
+
+          {/* Feature 1 */}
+          <div className="flex items-center gap-3">
+
+            <span
+              className="
+                grid size-10 shrink-0
+                place-items-center
+                rounded-full
+                border-2 border-blue-500
+                bg-blue-500/10
+              "
+            >
+              <Icon
+                name="check"
+                className="size-5 text-[#1685ff]"
+              />
+            </span>
+
+            <span
+              className="
+                text-[11px]
+                font-bold
+                leading-4
+                text-white
+              "
+            >
+              Pièces originales
+              <br />
+              et compatibles
+            </span>
+
+          </div>
+
+          {/* Feature 2 */}
+          <div className="flex items-center gap-3">
+
+            <span
+              className="
+                grid size-10 shrink-0
+                place-items-center
+                rounded-full
+                border-2 border-blue-500
+                bg-blue-500/10
+              "
+            >
+              <Icon
+                name="check"
+                className="size-5 text-[#1685ff]"
+              />
+            </span>
+
+            <span
+              className="
+                text-[11px]
+                font-bold
+                leading-4
+                text-white
+              "
+            >
+              Garantie
+              <br />
+              6 à 12 mois
+            </span>
+
+          </div>
+
+          {/* Feature 3 */}
+          <div className="flex items-center gap-3">
+
+            <span
+              className="
+                grid size-10 shrink-0
+                place-items-center
+                rounded-full
+                border-2 border-blue-500
+                bg-blue-500/10
+              "
+            >
+              <Icon
+                name="truck"
+                className="size-5 text-[#1685ff]"
+              />
+            </span>
+
+            <span
+              className="
+                text-[11px]
+                font-bold
+                leading-4
+                text-white
+              "
+            >
+              Expédition rapide
+              <br />
+              24h - 48h
+            </span>
+
+          </div>
+
+        </div>
+
+        {/* =================================================
+            CTA BUTTONS
+        ================================================= */}
+
+        <div
+          className="
+            mt-9
+            flex
+            flex-col
+            gap-3
+            sm:flex-row
+          "
+        >
+
+          {/* Products */}
+          <a
+            href="#produits"
+            className="
+              inline-flex
+              min-h-14
+              items-center
+              justify-center
+              gap-2
+              rounded-xl
+              bg-[#0877ed]
+              px-7
+              text-sm
+              font-black
+              text-white
+              shadow-xl
+              shadow-blue-900/30
+              transition
+              hover:-translate-y-1
+              hover:bg-[#0069d9]
+            "
+          >
+            <Icon
+              name="bag"
+              className="size-5"
+            />
+
+            Voir les produits
+          </a>
+
+          {/* Categories */}
+          <a
+            href="#categories"
+            className="
+              inline-flex
+              min-h-14
+              items-center
+              justify-center
+              gap-2
+              rounded-xl
+              border-2
+              border-white/80
+              bg-white/5
+              px-7
+              text-sm
+              font-black
+              text-white
+              backdrop-blur-sm
+              transition
+              hover:bg-white
+              hover:text-[#082d60]
+            "
+          >
+            <Icon
+              name="grid"
+              className="size-5"
+            />
+
+            Nos catégories
+          </a>
+
+        </div>
+
+      </div>
+
+      {/* ===================================================
+          HERO IMAGE
+      =================================================== */}
+
+      <div
+        className="
+          relative
+          hidden
+          min-h-[520px]
+          lg:block
+        "
+      >
+
+        {/* Image glow */}
+        <div
+          className="
+            absolute
+            right-[5%]
+            top-[25%]
+            h-[350px]
+            w-[500px]
+            rounded-full
+            bg-blue-500/30
+            blur-[90px]
+          "
+        />
+
+        {/* Main image */}
+        <img
+          src="/hero-scooter.png"
+          alt="Trottinette électrique et pièces détachées"
+          className="
+            absolute
+            right-[-90px]
+            top-1/2
+            z-10
+            h-[620px]
+            w-[720px]
+            max-w-none
+            -translate-y-1/2
+            object-contain
+            drop-shadow-[0_30px_40px_rgba(0,0,0,0.40)]
+          "
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
       <section
         id="accueil"
         className="px-4 pb-6 pt-2 sm:px-6 lg:px-8"
@@ -435,7 +830,14 @@ export default function Home() {
             </div>
 
             {/* HERO VISUAL */}
-            <div className="relative hidden min-h-[460px] lg:block">
+<div className="relative hidden min-h-[460px] lg:block">
+
+  <img
+    src="/hero-trotti.png"
+    alt="Trottinette électrique et pièces détachées"
+    className="absolute inset-0 h-full w-full object-contain"
+  />
+
 
               {/* Main scooter visual */}
               <div className="absolute bottom-[-35px] right-[-20px] h-[470px] w-[500px]">
