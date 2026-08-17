@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 
 import { useEffect, useState } from "react";
@@ -9,7 +9,7 @@ import { categories, contact, serviceHighlights } from "./data/store";
 const navigation = [
   { label: "Accueil", href: "#accueil" },
   { label: "Produits", href: "#produits" },
-  { label: "Catégories", href: "#categories" },
+  { label: "CatÃ©gories", href: "#categories" },
   { label: "Professionnels", href: "#professionnels" },
   { label: "Contact", href: "#contact" },
 ];
@@ -57,7 +57,7 @@ export default function Home() {
   }
 
     const whatsappLink = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
-    "Bonjour TROTTI PARTS MAROC, je souhaite commander des pièces."
+    "Bonjour TROTTI PARTS MAROC, je souhaite commander des piÃ¨ces."
   )}`;
 
   return (
@@ -65,9 +65,9 @@ export default function Home() {
       {/* TOP BAR */}
       <div className="border-b border-slate-200 bg-[#062f46] px-4 py-2 text-center text-[11px] font-semibold text-white sm:text-xs">
         <span>Livraison rapide partout au Maroc</span>
-        <span className="mx-2 text-sky-300">•</span>
+        <span className="mx-2 text-sky-300">â€¢</span>
 
-        <span className="mx-2 text-sky-300">•</span>
+        <span className="mx-2 text-sky-300">â€¢</span>
         <span>Commande par WhatsApp</span>
       </div>
 
@@ -192,16 +192,16 @@ export default function Home() {
             </div>
 
             <h1 className="mt-6 max-w-3xl text-[2.7rem] font-black leading-[0.98] tracking-[-0.055em] text-slate-950 sm:text-5xl lg:text-[4.35rem]">
-              Les bonnes pièces pour
+              Les bonnes piÃ¨ces pour
               <span className="mt-2 block text-[#087bb6]">
                 votre trottinette.
               </span>
             </h1>
 
             <p className="mt-6 max-w-xl text-[15px] leading-7 text-slate-600 sm:text-[17px]">
-              Pneus, freins, chargeurs, contrôleurs et accessoires
-              pour trottinettes électriques. Des pièces sélectionnées
-              pour particuliers, réparateurs et professionnels au Maroc.
+              Pneus, freins, chargeurs, contrÃ´leurs et accessoires
+              pour trottinettes Ã©lectriques. Des piÃ¨ces sÃ©lectionnÃ©es
+              pour particuliers, rÃ©parateurs et professionnels au Maroc.
             </p>
 
             {/* CTA */}
@@ -300,7 +300,7 @@ export default function Home() {
                       Stock disponible
                     </p>
                     <p className="text-[9px] font-semibold text-slate-500">
-                      Mrirt · Maroc
+                      Mrirt Â· Maroc
                     </p>
                   </div>
                 </div>
@@ -308,17 +308,17 @@ export default function Home() {
                 {/* Floating category */}
                 <div className="absolute right-5 top-5 z-20 rounded-xl bg-[#075985] px-3 py-2.5 text-white shadow-lg">
                   <p className="text-[9px] font-bold uppercase tracking-wider text-sky-200">
-                    Spécialiste
+                    SpÃ©cialiste
                   </p>
                   <p className="mt-0.5 text-xs font-black">
-                    Trottinettes électriques
+                    Trottinettes Ã©lectriques
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center justify-between px-2 pb-1 pt-3">
                 <span className="text-[11px] font-bold text-slate-500">
-                  Pièces & accessoires
+                  PiÃ¨ces & accessoires
                 </span>
 
                 <span className="text-[11px] font-black text-[#075985]">
@@ -342,12 +342,12 @@ export default function Home() {
             </p>
 
             <h2 className="section-title">
-              Nos catégories
+              Nos catÃ©gories
             </h2>
 
             <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500">
-              Découvrez les pièces les plus recherchées pour
-              l'entretien et la réparation de votre trottinette.
+              DÃ©couvrez les piÃ¨ces les plus recherchÃ©es pour
+              l'entretien et la rÃ©paration de votre trottinette.
             </p>
           </div>
 
@@ -355,7 +355,7 @@ export default function Home() {
             href="#produits"
             className="hidden text-sm font-black text-[#087bb6] transition hover:text-[#075985] sm:block"
           >
-            Voir tous les produits →
+            Voir tous les produits â†’
           </a>
         </div>
 
@@ -380,7 +380,7 @@ export default function Home() {
               </h3>
 
               <p className="mt-1 text-xs font-medium text-slate-500">
-                Voir la sélection
+                Voir la sÃ©lection
               </p>
             </a>
           ))}
@@ -401,7 +401,7 @@ export default function Home() {
             </p>
 
             <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-              Une solution simple pour vos pièces de trottinette.
+              Une solution simple pour vos piÃ¨ces de trottinette.
             </h2>
           </div>
 
@@ -448,17 +448,17 @@ export default function Home() {
               </div>
 
               <p className="mt-10 max-w-sm text-2xl font-black leading-tight">
-                Votre atelier mérite un fournisseur fiable.
+                Votre atelier mÃ©rite un fournisseur fiable.
               </p>
 
               <p className="mt-4 max-w-sm text-sm leading-6 text-sky-100/80">
-                Commandes en quantité, réponse rapide et accompagnement
-                pour les réparateurs.
+                Commandes en quantitÃ©, rÃ©ponse rapide et accompagnement
+                pour les rÃ©parateurs.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-2">
                 <span className="rounded-lg bg-white/10 px-3 py-2 text-[10px] font-black">
-                  Stock régulier
+                  Stock rÃ©gulier
                 </span>
 
                 <span className="rounded-lg bg-white/10 px-3 py-2 text-[10px] font-black">
@@ -466,7 +466,7 @@ export default function Home() {
                 </span>
 
                 <span className="rounded-lg bg-white/10 px-3 py-2 text-[10px] font-black">
-                  Réponse rapide
+                  RÃ©ponse rapide
                 </span>
               </div>
             </div>
@@ -479,14 +479,14 @@ export default function Home() {
             </p>
 
             <h2 className="section-title">
-              Vous êtes réparateur ?
+              Vous Ãªtes rÃ©parateur ?
             </h2>
 
             <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-              Nous proposons des solutions adaptées aux ateliers et
-              réparateurs qui ont besoin de pièces régulièrement.
-              Contactez-nous pour connaître nos tarifs professionnels
-              et les disponibilités.
+              Nous proposons des solutions adaptÃ©es aux ateliers et
+              rÃ©parateurs qui ont besoin de piÃ¨ces rÃ©guliÃ¨rement.
+              Contactez-nous pour connaÃ®tre nos tarifs professionnels
+              et les disponibilitÃ©s.
             </p>
 
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -496,10 +496,10 @@ export default function Home() {
                   className="size-5 text-[#19a957]"
                 />
                 <p className="mt-2 text-sm font-black">
-                  Commandes en quantité
+                  Commandes en quantitÃ©
                 </p>
                 <p className="mt-1 text-xs leading-5 text-slate-500">
-                  Des solutions adaptées aux besoins des ateliers.
+                  Des solutions adaptÃ©es aux besoins des ateliers.
                 </p>
               </div>
 
@@ -512,7 +512,7 @@ export default function Home() {
                   Contact direct
                 </p>
                 <p className="mt-1 text-xs leading-5 text-slate-500">
-                  Échangez directement avec nous sur WhatsApp.
+                  Ã‰changez directement avec nous sur WhatsApp.
                 </p>
               </div>
             </div>
@@ -548,7 +548,7 @@ export default function Home() {
 
             <div>
               <p className="section-eyebrow">
-                Expédition
+                ExpÃ©dition
               </p>
 
               <h2 className="section-title">
@@ -557,13 +557,13 @@ export default function Home() {
 
               <p className="mt-3 text-sm text-slate-600">
                 Mrirt
-                <span className="mx-2 text-sky-400">•</span>
-                Khénifra
-                <span className="mx-2 text-sky-400">•</span>
-                Kénitra
-                <span className="mx-2 text-sky-400">•</span>
+                <span className="mx-2 text-sky-400">â€¢</span>
+                KhÃ©nifra
+                <span className="mx-2 text-sky-400">â€¢</span>
+                KÃ©nitra
+                <span className="mx-2 text-sky-400">â€¢</span>
                 Casablanca
-                <span className="mx-2 text-sky-400">•</span>
+                <span className="mx-2 text-sky-400">â€¢</span>
                 et toutes les villes du Maroc
               </p>
             </div>
@@ -598,8 +598,8 @@ export default function Home() {
             </div>
 
             <p className="mt-5 max-w-xs text-sm leading-6 text-slate-400">
-              Votre spécialiste des pièces et accessoires pour
-              trottinettes électriques au Maroc.
+              Votre spÃ©cialiste des piÃ¨ces et accessoires pour
+              trottinettes Ã©lectriques au Maroc.
             </p>
           </div>
 
@@ -652,7 +652,7 @@ export default function Home() {
             </h3>
 
             <p className="mt-4 text-sm leading-6 text-slate-400">
-              Expédition vers Mrirt, Khénifra, Kénitra et partout au
+              ExpÃ©dition vers Mrirt, KhÃ©nifra, KÃ©nitra et partout au
               Maroc.
             </p>
 
@@ -674,11 +674,11 @@ export default function Home() {
         <div className="border-t border-white/10">
           <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-slate-500 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
             <span>
-              © 2026 TROTTI PARTS MAROC. Tous droits réservés.
+              Â© 2026 TROTTI PARTS MAROC. Tous droits rÃ©servÃ©s.
             </span>
 
             <span>
-              Pièces & accessoires pour trottinettes électriques
+              PiÃ¨ces & accessoires pour trottinettes Ã©lectriques
             </span>
           </div>
         </div>
@@ -686,6 +686,7 @@ export default function Home() {
     </main>
   );
 }
+
 
 
 
