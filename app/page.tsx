@@ -9,7 +9,7 @@ import { categories, contact, serviceHighlights } from "./data/store";
 const navigation = [
   { label: "Accueil", href: "#accueil" },
   { label: "Produits", href: "#produits" },
-  { label: "CatÃ©gories", href: "#categories" },
+  { label: "Catégories", href: "#categories" },
   { label: "Professionnels", href: "#professionnels" },
   { label: "Contact", href: "#contact" },
 ];
@@ -63,17 +63,17 @@ export default function Home() {
   return (
     <main className="overflow-hidden bg-[#f8fafc] text-slate-950">
       {/* TOP BAR */}
-      <div className="border-b border-slate-200 bg-[#062f46] px-4 py-2 text-center text-[11px] font-semibold text-white sm:text-xs">
-        <span>Livraison rapide partout au Maroc</span>
-        <span className="mx-2 text-sky-300">â€¢</span>
-
-        <span className="mx-2 text-sky-300">â€¢</span>
-        <span>Commande par WhatsApp</span>
+      <div className="hidden overflow-hidden bg-[#031d4e] text-white lg:block">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-3 px-8">
+          <div className="flex items-center gap-4 py-3.5"><span className="grid size-10 place-items-center rounded-full bg-white/10 text-sky-200"><Icon name="truck" className="size-6" /></span><div><p className="text-sm font-black uppercase">Livraison rapide au Maroc</p><p className="mt-0.5 text-sm text-slate-200">Partout au Maroc en 24h - 48h</p></div></div>
+          <div className="relative flex items-center justify-center gap-4 bg-[#063a86] py-3.5"><span className="grid size-10 place-items-center rounded-full bg-emerald-500/30 ring-2 ring-emerald-300"><Icon name="pin" className="size-6" /></span><div><p className="text-sm font-black uppercase">Stock disponible à Mrirt</p><p className="mt-0.5 inline-block rounded bg-emerald-600 px-2 py-0.5 text-xs font-bold">✓ Retrait rapide sur place</p></div></div>
+          <div className="flex items-center justify-end gap-4 py-3.5"><span className="grid size-10 place-items-center rounded-full bg-white/10"><Icon name="check" className="size-6" /></span><div><p className="text-sm font-black uppercase">Pièces testées & garanties</p><p className="mt-0.5 text-sm text-slate-200">Qualité et fiabilité assurées</p></div></div>
+        </div>
       </div>
 
       {/* HEADER */}
-      <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <header className="relative z-50 bg-white">
+        <div className="mx-auto flex min-h-[140px] max-w-[1440px] items-center gap-6 px-5 py-5 sm:px-8 lg:px-12">
           {/* LOGO */}
           <a
             href="#accueil"
@@ -85,38 +85,20 @@ export default function Home() {
               alt="Trotti Parts Maroc"
               width={180}
               height={100}
-              className="block h-[62px] w-auto object-contain"
+              className="block h-[96px] w-auto object-contain"
             />
           </a>
 
-          {/* NAVIGATION */}
-          <nav
-            className="hidden items-center gap-7 lg:flex"
-            aria-label="Navigation principale"
-          >
-            {navigation.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className={`relative text-[13px] font-bold text-slate-600 transition hover:text-[#075985] ${
-                  item.label === "Produits"
-                    ? "text-[#075985]"
-                    : ""
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+          <div className="hidden flex-1 lg:flex"><button type="button" onClick={handleSearchClick} className="flex h-[62px] w-full max-w-[620px] items-center rounded-xl border border-slate-200 bg-white pl-6 text-left text-[16px] text-slate-500 shadow-sm">Rechercher une pièce, une référence...<span className="ml-auto grid h-full w-[68px] place-items-center rounded-r-[11px] bg-[#062d67] text-white"><Icon name="search" className="size-7" /></span></button></div>
 
           {/* ACTIONS */}
-<div className="flex items-center gap-2">
+<div className="ml-auto flex items-center gap-3">
 
   {/* SEARCH */}
   <button
     type="button"
     onClick={handleSearchClick}
-    className="hidden size-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:border-sky-200 hover:bg-sky-50 sm:grid"
+    className="grid size-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:border-sky-200 hover:bg-sky-50 lg:hidden"
     aria-label="Rechercher"
   >
     <Icon
@@ -129,29 +111,30 @@ export default function Home() {
   <button
     type="button"
     onClick={handleCartClick}
-    className="relative grid size-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:border-sky-200 hover:bg-sky-50"
+    className="relative grid place-items-center text-[#062d67] transition hover:text-blue-600 lg:min-w-[66px]"
     aria-label={`Panier (${cartCount} articles)`}
   >
     <Icon
       name="bag"
-      className="size-[18px]"
+      className="size-7"
     />
 
-    <span className="absolute -right-1 -top-1 grid size-4 place-items-center rounded-full bg-[#0b85c6] text-[9px] font-black text-white">
+    <span className="absolute right-1 top-[-7px] grid size-5 place-items-center rounded-full bg-[#087dea] text-[10px] font-black text-white">
       {cartCount}
     </span>
   </button>
 
+  <span className="hidden text-sm font-black text-[#062d67] lg:block">Panier</span>
   {/* WHATSAPP */}
   <a
     href={whatsappLink}
     target="_blank"
     rel="noreferrer"
-    className="hidden items-center gap-2 rounded-xl bg-[#18a957] px-4 py-2.5 text-xs font-black text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#128b47] hover:shadow-md sm:flex"
+    className="hidden items-center gap-2 rounded-xl bg-[#07963d] px-5 py-3.5 text-base font-black text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#087b35] hover:shadow-md lg:flex"
   >
     <Icon
       name="whatsapp"
-      className="size-4"
+      className="size-6"
     />
     WhatsApp
   </a>
@@ -171,127 +154,126 @@ export default function Home() {
 </div>
 
 </div>
+        <div className="mx-auto hidden max-w-[1360px] items-center justify-between rounded-2xl bg-white px-4 py-4 shadow-[0_10px_28px_rgba(15,45,96,0.09)] lg:flex">
+          <nav className="flex items-center gap-1" aria-label="Navigation principale">{navigation.map((item) => (<a key={item.label} href={item.href} className={`rounded-lg px-5 py-4 text-sm font-black uppercase text-[#062d67] transition hover:bg-blue-50 ${item.label === "Accueil" ? "bg-[#087dea] text-white hover:bg-[#087dea]" : ""}`}>{item.label}{["Produits", "Catégories"].includes(item.label) && <span className="ml-3">⌄</span>}</a>))}</nav>
+          <div className="flex gap-3"><div className="flex items-center gap-3 rounded-2xl bg-[#f1f6ff] px-4 py-2"><Icon name="truck" className="size-7 text-[#087dea]" /><span className="text-sm font-black text-[#062d67]">Livraison 24/48h<br /><small className="font-medium text-slate-500">Partout au Maroc</small></span></div><div className="flex items-center gap-3 rounded-2xl bg-[#f1f6ff] px-4 py-2"><Icon name="check" className="size-7 text-[#087dea]" /><span className="text-sm font-black text-[#062d67]">SAV Réactif<br /><small className="font-medium text-slate-500">7j/7</small></span></div></div>
+        </div>
       </header>
 
       {/* HERO */}
       <section
         id="accueil"
-        className="relative isolate overflow-hidden bg-[#eef8fc]"
+        className="relative mx-auto mt-6 max-w-[1360px] overflow-hidden rounded-[24px] bg-[#021f45] text-white shadow-2xl"
       >
         {/* Background */}
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_20%,rgba(11,133,198,0.13),transparent_30%),radial-gradient(circle_at_85%_50%,rgba(35,194,111,0.08),transparent_28%)]" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_73%_55%,rgba(0,126,255,.65),transparent_24%),radial-gradient(circle_at_20%_20%,rgba(0,93,198,.25),transparent_43%),linear-gradient(115deg,#02152f,#042f68)]" />
 
         <div className="absolute right-[-100px] top-[-100px] -z-10 size-[360px] rounded-full bg-sky-200/30 blur-3xl" />
 
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:px-8 lg:py-[92px]">
+        <div className="relative mx-auto min-h-[600px] max-w-[1360px] px-6 py-12 sm:px-12 lg:px-12 lg:py-16">
           {/* HERO CONTENT */}
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3.5 py-2 text-[11px] font-black text-[#075985] shadow-sm">
-              <span className="size-2 rounded-full bg-[#19b45b]" />
-              Stock disponible au Maroc
+          <div className="relative z-10 max-w-[560px]">
+            <div className="inline-flex items-center gap-2 rounded-lg bg-[#087dea] px-4 py-2 text-[13px] font-black uppercase text-white shadow-sm">
+              Pièces & accessoires
             </div>
 
-            <h1 className="mt-6 max-w-3xl text-[2.7rem] font-black leading-[0.98] tracking-[-0.055em] text-slate-950 sm:text-5xl lg:text-[4.35rem]">
-              Les bonnes piÃ¨ces pour
-              <span className="mt-2 block text-[#087bb6]">
-                votre trottinette.
+            <h1 className="mt-6 max-w-3xl text-[2.7rem] font-black uppercase leading-[.98] tracking-[-0.045em] text-white sm:text-5xl lg:text-[3.6rem]">
+              Pour trottinettes
+              <span className="mt-2 block text-[#087dea]">
+                électriques
               </span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-[15px] leading-7 text-slate-600 sm:text-[17px]">
-              Pneus, freins, chargeurs, contrÃ´leurs et accessoires
-              pour trottinettes Ã©lectriques. Des piÃ¨ces sÃ©lectionnÃ©es
-              pour particuliers, rÃ©parateurs et professionnels au Maroc.
+            <div className="mt-7 h-0.5 w-16 bg-[#087dea]" />
+            <p className="mt-6 max-w-md text-[16px] leading-7 text-slate-100 sm:text-[18px]">
+              Qualité, fiabilité et performance pour toutes les marques de trottinettes.
             </p>
 
             {/* CTA */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#produits"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#075985] px-6 py-3.5 text-sm font-black text-white shadow-lg shadow-sky-900/15 transition hover:-translate-y-0.5 hover:bg-[#064b70]"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[#087dea] px-6 py-3.5 text-sm font-black uppercase text-white shadow-lg shadow-sky-900/15 transition hover:-translate-y-0.5 hover:bg-blue-600"
               >
                 Voir les produits
                 <Icon name="arrow" className="size-4" />
               </a>
 
               <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-black text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:border-[#19b45b] hover:text-[#168a47]"
+                href="#categories"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl border-2 border-white bg-transparent px-6 py-3.5 text-sm font-black uppercase text-white shadow-sm transition hover:bg-white/10"
               >
                 <Icon
-                  name="whatsapp"
-                  className="size-5 text-[#19b45b]"
+                  name="bag"
+                  className="size-5"
                 />
-                Commander sur WhatsApp
+                Nos catégories
               </a>
             </div>
 
             {/* TRUST */}
-            <div className="mt-9 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-3">
-              <div className="flex items-center gap-2.5 rounded-xl border border-slate-200/70 bg-white/75 px-3 py-3">
-                <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-emerald-50">
+            <div className="mt-10 grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="flex items-center gap-2.5 px-1 py-1">
+                <span className="grid size-9 shrink-0 place-items-center rounded-full border-2 border-[#087dea]">
                   <Icon
                     name="check"
                     className="size-4 text-[#19a957]"
                   />
                 </span>
-                <span className="text-[11px] font-bold text-slate-700">
-                  Stock local
+                <span className="text-[12px] font-bold text-white">
+                  Pièces originales<br />et compatibles
                 </span>
               </div>
 
-              <div className="flex items-center gap-2.5 rounded-xl border border-slate-200/70 bg-white/75 px-3 py-3">
-                <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-sky-50">
+              <div className="flex items-center gap-2.5 px-1 py-1">
+                <span className="grid size-9 shrink-0 place-items-center rounded-full border-2 border-[#087dea]">
                   <Icon
                     name="truck"
                     className="size-4 text-[#087bb6]"
                   />
                 </span>
-                <span className="text-[11px] font-bold text-slate-700">
-                  Livraison Maroc
+                <span className="text-[12px] font-bold text-white">
+                  Garantie<br />6 à 12 mois
                 </span>
               </div>
 
-              <div className="flex items-center gap-2.5 rounded-xl border border-slate-200/70 bg-white/75 px-3 py-3">
-                <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-green-50">
+              <div className="flex items-center gap-2.5 px-1 py-1">
+                <span className="grid size-9 shrink-0 place-items-center rounded-full border-2 border-[#087dea]">
                   <Icon
-                    name="whatsapp"
-                    className="size-4 text-[#19a957]"
+                  name="truck"
+                  className="size-4 text-[#087dea]"
                   />
                 </span>
-                <span className="text-[11px] font-bold text-slate-700">
-                  Commande rapide
+                <span className="text-[12px] font-bold text-white">
+                  Expédition rapide<br />24h - 48h
                 </span>
               </div>
             </div>
           </div>
 
           {/* HERO VISUAL */}
-          <div className="relative mx-auto w-full max-w-[510px]">
+          <div className="relative mt-8 w-full lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:w-[65%]">
             <div className="absolute -inset-8 -z-10 rounded-full bg-sky-300/30 blur-3xl" />
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white p-3 shadow-[0_25px_70px_rgba(7,89,133,0.14)]">
+            <div className="relative overflow-visible rounded-none border-0 bg-transparent p-0 shadow-none">
               {/* Blue decoration */}
-              <div className="absolute right-0 top-0 h-44 w-44 rounded-bl-[5rem] bg-[#087bb6]" />
+              <div className="absolute right-0 top-0 hidden h-44 w-44 rounded-bl-[5rem] bg-[#087bb6]" />
 
-              <div className="absolute bottom-0 left-0 h-28 w-28 rounded-tr-[4rem] bg-[#eaf7fc]" />
+              <div className="absolute bottom-0 left-0 hidden h-28 w-28 rounded-tr-[4rem] bg-[#eaf7fc]" />
 
               {/* Image */}
-              <div className="relative flex h-[330px] items-center justify-center overflow-hidden rounded-[1.5rem] bg-[#f6fbfd] sm:h-[390px]">
-                <div className="absolute inset-0 opacity-50 [background-image:radial-gradient(#9cd3ef_1px,transparent_1px)] [background-size:20px_20px]" />
+              <div className="relative flex h-[360px] items-end justify-center overflow-hidden lg:h-[600px]">
 
                 <img
-                  src="/hero-scooter.png"
+                  src="/products/hero-scooter.png"
                   alt="Trotti Parts Maroc"
                   width={600}
                   height={500}
-                  className="relative z-10 max-h-[260px] w-auto max-w-[80%] object-contain drop-shadow-xl sm:max-h-[310px]"
+                  className="absolute inset-0 h-full w-full object-cover object-center lg:object-left"
                 />
 
                 {/* Floating badge */}
-                <div className="absolute bottom-5 left-5 z-20 flex items-center gap-2 rounded-xl border border-white bg-white px-3 py-2.5 shadow-lg">
+                <div className="absolute bottom-5 left-5 z-20 hidden items-center gap-2 rounded-xl border border-white bg-white px-3 py-2.5 shadow-lg">
                   <span className="grid size-8 place-items-center rounded-lg bg-emerald-50">
                     <span className="size-2.5 rounded-full bg-[#19b45b]" />
                   </span>
@@ -306,7 +288,7 @@ export default function Home() {
                 </div>
 
                 {/* Floating category */}
-                <div className="absolute right-5 top-5 z-20 rounded-xl bg-[#075985] px-3 py-2.5 text-white shadow-lg">
+                <div className="absolute right-5 top-5 z-20 hidden rounded-xl bg-[#075985] px-3 py-2.5 text-white shadow-lg">
                   <p className="text-[9px] font-bold uppercase tracking-wider text-sky-200">
                     SpÃ©cialiste
                   </p>
@@ -316,7 +298,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between px-2 pb-1 pt-3">
+              <div className="hidden items-center justify-between px-2 pb-1 pt-3">
                 <span className="text-[11px] font-bold text-slate-500">
                   PiÃ¨ces & accessoires
                 </span>
@@ -328,6 +310,20 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto grid max-w-[1360px] gap-4 px-4 py-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-0">
+        {[
+          ["pin", "Stock à Mrirt", "Retrait rapide disponible", "✓ En stock"],
+          ["box", "+1500 pièces", "En stock et prêtes à expédier", "Grand choix"],
+          ["check", "Clients satisfaits", "Qualité approuvée", "4.9/5 sur Google"],
+          ["whatsapp", "Support 7j/7", "Notre équipe à votre écoute", "Réponse rapide"],
+        ].map(([icon, title, text, badge]) => (
+          <div key={title} className="flex items-start gap-4 rounded-xl border border-[#dce8f8] bg-white p-4 shadow-sm">
+            <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#f0f6ff] text-[#087dea]"><Icon name={icon} className="size-7" /></span>
+            <div><h3 className="text-sm font-black uppercase text-[#062d67]">{title}</h3><p className="mt-1 text-xs text-slate-500">{text}</p><span className="mt-2 inline-block rounded-full bg-[#edf5ff] px-2.5 py-1 text-[11px] font-semibold text-[#087dea]">{badge}</span></div>
+          </div>
+        ))}
       </section>
 
       {/* CATEGORIES */}
