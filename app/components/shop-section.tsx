@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ProductCard } from "./product-card";
 import { Icon } from "./ui-icon";
 import {
@@ -51,6 +51,12 @@ export function ShopSection() {
     (sum, item) => sum + item.product.price * item.quantity,
     0,
   );
+
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent("cart-updated", { detail: { count: cartCount } }),
+    );
+  }, [cartCount]);
 
   function addToCart(product: Product) {
     setCart((current) => {
@@ -141,6 +147,7 @@ Merci de me confirmer la disponibilité et les frais de livraison.`;
               />
 
               <input
+                id="product-search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 type="search"
@@ -196,7 +203,7 @@ Merci de me confirmer la disponibilité et les frais de livraison.`;
         </div>
 
         {cart.length > 0 && (
-          <div className="mt-8 rounded-2xl border border-sky-100 bg-[#f8fbfd] p-5 shadow-sm">
+          <div id="cart-section" className="mt-8 rounded-2xl border border-sky-100 bg-[#f8fbfd] p-5 shadow-sm">
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 
