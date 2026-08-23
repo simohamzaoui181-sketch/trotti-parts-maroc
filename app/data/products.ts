@@ -1,9 +1,6 @@
-export const contact = {
-  whatsapp: "212781575905",
-  displayWhatsapp: "212 781575905",
-};
+import type { Product, Category } from "../types/product";
 
-export const categories = [
+export const categories: Category[] = [
   { name: "Pneus", icon: "wheel", color: "bg-orange-100" },
   { name: "Chambres à air", icon: "tube", color: "bg-sky-100" },
   { name: "Freins", icon: "brake", color: "bg-red-100" },
@@ -12,132 +9,128 @@ export const categories = [
   { name: "Écrans", icon: "screen", color: "bg-cyan-100" },
   { name: "Accélérateurs", icon: "handle", color: "bg-emerald-100" },
   { name: "Accessoires", icon: "tool", color: "bg-pink-100" },
-] as const;
-
-export type ProductCategory = (typeof categories)[number]["name"];
-
-export type Product = {
-  slug: string;
-  name: string;
-  price: number;
-  stock: string;
-  maxStock: number;
-  visual:
-    | "tube"
-    | "tire"
-    | "brakes"
-    | "controller"
-    | "controller48"
-    | "charger"
-    | "throttle"
-    | "display";
-  image: string;
-  category: ProductCategory;
-  compatibleModels: string[];
-  badge?: string;
-};
+];
 
 export const products: Product[] = [
   {
+    id: "prod-001",
     slug: "pneu-tubeless-80-65-6",
     name: "Pneu Tubeless 80/65-6",
+    description: "Pneu tubeless haute performance compatible avec Ninebot G30 et Kugoo M4",
     price: 120,
-    stock: "En stock",
-    maxStock: 15,
-    visual: "tire",
-    image: "/products/pneu-tubeless-8065-6.png",
     category: "Pneus",
-    compatibleModels: ["Ninebot G30", "Kugoo M4"],
+    modelCompatibility: ["Ninebot G30", "Kugoo M4"],
+    image: "/products/pneu-tubeless-8065-6.png",
+    visual: "tire",
+    maxStock: 15,
+    featured: true,
     badge: "Meilleure vente",
+    active: true,
   },
   {
+    id: "prod-002",
     slug: "pneu-10x270-65-tubeless-smartgyro-urbanglide",
     name: "Pneu 10×2.70-6.5 Tubeless Smartgyro / UrbanGlide",
+    description: "Pneu tubeless compatible Smartgyro et UrbanGlide",
     price: 120,
-    stock: "En stock",
-    maxStock: 12,
-    visual: "tire",
-    image: "/products/pneu-10x270-65-tubeless.png",
     category: "Pneus",
-    compatibleModels: ["Smartgyro", "UrbanGlide"],
+    modelCompatibility: ["Smartgyro", "UrbanGlide"],
+    image: "/products/pneu-10x270-65-tubeless.png",
+    visual: "tire",
+    maxStock: 12,
+    active: true,
   },
   {
+    id: "prod-003",
     slug: "pneu-85-65-6-5-bison-ecoextrem",
     name: "Pneu 85/65-6.5 Bison EcoExtrem",
+    description: "Pneu haute durabilité pour Bison EcoExtrem",
     price: 120,
-    stock: "En stock",
-    maxStock: 10,
-    visual: "tire",
-    image: "/products/pneu-85x65-65-bison-ecoextrem.png",
     category: "Pneus",
-    compatibleModels: ["Bison EcoExtrem"],
+    modelCompatibility: ["Bison EcoExtrem"],
+    image: "/products/pneu-85x65-65-bison-ecoextrem.png",
+    visual: "tire",
+    maxStock: 10,
+    active: true,
   },
   {
+    id: "prod-004",
     slug: "pneu-60-70-6-5-tubeless",
     name: "Pneu 60/70-6.5 Tubeless",
+    description: "Pneu universel 6.5 tubeless",
     price: 120,
-    stock: "En stock",
-    maxStock: 14,
-    visual: "tire",
-    image: "/products/pneu-60x70-65-tubeless.png",
     category: "Pneus",
-    compatibleModels: ["Universel 6.5"],
+    modelCompatibility: ["Universel 6.5"],
+    image: "/products/pneu-60x70-65-tubeless.png",
+    visual: "tire",
+    maxStock: 14,
+    active: true,
   },
   {
+    id: "prod-005",
     slug: "levier-frein-xiaomi",
     name: "Levier de frein Xiaomi",
+    description: "Levier de frein compatible Xiaomi M365 et Ninebot ES",
     price: 40,
-    stock: "En stock",
-    maxStock: 20,
-    visual: "brakes",
-    image: "/products/levier-frein-xiaomi.png",
     category: "Freins",
-    compatibleModels: ["Xiaomi M365", "Ninebot ES"],
+    modelCompatibility: ["Xiaomi M365", "Ninebot ES"],
+    image: "/products/levier-frein-xiaomi.png",
+    visual: "brakes",
+    maxStock: 20,
+    active: true,
   },
   {
+    id: "prod-006",
     slug: "chargeur-liitokala-42v-2a",
     name: "Chargeur LiitoKala 42V/2A",
+    description: "Chargeur haute performance 42V 2A pour trottinettes électriques",
     price: 110,
-    stock: "En stock",
-    maxStock: 8,
-    visual: "charger",
-    image: "/products/chargeur-42v-2a.png",
     category: "Chargeurs",
-    compatibleModels: ["Xiaomi M365", "Pro 2"],
+    modelCompatibility: ["Xiaomi M365", "Pro 2"],
+    image: "/products/chargeur-42v-2a.png",
+    visual: "charger",
+    maxStock: 8,
     badge: "Nouveau",
+    active: true,
   },
   {
+    id: "prod-007",
     slug: "dashboard-xiaomi-m365-pro",
     name: "Dashboard Xiaomi M365 Pro / Pro 1",
+    description: "Écran de contrôle pour Xiaomi M365 Pro et Pro 1",
     price: 120,
-    stock: "En stock",
-    maxStock: 6,
-    visual: "display",
-    image: "/products/dashboard-m365-pro.png",
     category: "Écrans",
-    compatibleModels: ["Xiaomi M365", "Pro 2"],
+    modelCompatibility: ["Xiaomi M365", "Pro 2"],
+    image: "/products/dashboard-m365-pro.png",
+    visual: "display",
+    maxStock: 6,
+    active: true,
   },
   {
+    id: "prod-008",
     slug: "dashboard-xiaomi-pro-2-essential-xiaomi-3",
     name: "Dashboard Xiaomi Pro 2 / Essential / Xiaomi 3",
+    description: "Écran pour Xiaomi Pro 2, Essential et Xiaomi 3",
     price: 120,
-    stock: "En stock",
-    maxStock: 5,
-    visual: "display",
-    image: "/products/dashboard-pro2-essential.png",
     category: "Écrans",
-    compatibleModels: ["Kugoo M4", "Kaabo Mantis"],
+    modelCompatibility: ["Kugoo M4", "Kaabo Mantis"],
+    image: "/products/dashboard-pro2-essential.png",
+    visual: "display",
+    maxStock: 5,
+    active: true,
   },
   {
+    id: "prod-009",
     slug: "feu-arriere-xiaomi-pro-2",
     name: "Feu arrière Xiaomi Pro 2",
+    description: "Feu arrière de sécurité compatible universel",
     price: 25,
-    stock: "En stock",
-    maxStock: 30,
-    visual: "display",
-    image: "/products/feu-arriere-pro2.png",
     category: "Accessoires",
-    compatibleModels: ["Universel"],
+    modelCompatibility: ["Universel"],
+    image: "/products/feu-arriere-pro2.png",
+    visual: "display",
+    maxStock: 30,
+    active: true,
   },
 ];
 
@@ -168,3 +161,8 @@ export const serviceHighlights = [
     icon: "tools",
   },
 ] as const;
+
+export const contact = {
+  whatsapp: "212781575905",
+  displayWhatsapp: "212 781575905",
+};

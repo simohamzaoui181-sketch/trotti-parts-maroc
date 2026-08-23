@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { type Product } from "../data/store";
+import type { Product } from "../types/product";
 
 export function ProductImage({ product }: { product: Product }) {
   const [hasImageError, setHasImageError] = useState(false);
