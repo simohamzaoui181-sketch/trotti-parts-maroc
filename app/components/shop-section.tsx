@@ -220,7 +220,7 @@ export function ShopSection() {
 
         {/* Cart Section */}
         {cart.length > 0 && (
-          <div id="cart-section" className="mt-8 space-y-4 rounded-2xl border border-sky-200 bg-gradient-to-br from-sky-50 to-blue-50 p-5 shadow-sm sm:p-6 lg:p-7">
+          <div id="cart-section" className="mt-8 space-y-4 rounded-2xl border border-sky-200 bg-gradient-to-br from-sky-50 to-blue-50 p-5 shadow-sm transition-all duration-300 sm:p-6 lg:p-7 animate-in fade-in slide-in-from-bottom-4">
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
@@ -228,7 +228,7 @@ export function ShopSection() {
                   Votre panier
                 </p>
                 <h3 className="mt-2 text-xl font-black text-slate-900 sm:text-2xl">
-                  {cartCount} article{cartCount > 1 ? "s" : ""} · <span className="text-[#075985]">{cartTotal} DH</span>
+                  {cartCount} article{cartCount > 1 ? "s" : ""} · <span className="text-[#075985] transition-all duration-200">{cartTotal} DH</span>
                 </h3>
               </div>
 
@@ -247,7 +247,7 @@ export function ShopSection() {
               {cartWithProducts.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center justify-between gap-3 rounded-xl bg-white p-3.5 shadow-sm transition-all hover:shadow-md sm:p-4"
+                  className="flex items-center justify-between gap-3 rounded-xl bg-white p-3.5 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 sm:p-4 animate-in fade-in slide-in-from-left-2"
                 >
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-bold text-slate-900">
@@ -262,7 +262,7 @@ export function ShopSection() {
                     <button
                       type="button"
                       onClick={() => handleChangeQuantity(item.id, -1)}
-                      className="grid size-9 place-items-center font-bold text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+                      className="grid size-9 place-items-center font-bold text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 active:scale-95"
                       aria-label="Diminuer la quantité"
                     >
                       −
@@ -275,7 +275,7 @@ export function ShopSection() {
                     <button
                       type="button"
                       onClick={() => handleChangeQuantity(item.id, 1)}
-                      className="grid size-9 place-items-center font-bold text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+                      className="grid size-9 place-items-center font-bold text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 active:scale-95"
                       aria-label="Augmenter la quantité"
                     >
                       +

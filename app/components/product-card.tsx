@@ -16,9 +16,9 @@ export function ProductCard({
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-slate-200 hover:shadow-2xl">
       {/* Image section */}
-      <div className="relative grid aspect-[1.2] place-items-center overflow-hidden bg-gradient-to-br from-[#f1f7fa] to-[#e3f2fd] p-4 sm:p-5">
+      <div className="relative grid aspect-[1.2] place-items-center overflow-hidden bg-gradient-to-br from-[#f1f7fa] to-[#e3f2fd] p-4 sm:p-5 transition-all duration-200">
         {product.badge && (
-          <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-[#075985] px-3 py-1.5 text-[11px] font-bold text-white shadow-lg">
+          <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-[#075985] px-3 py-1.5 text-[11px] font-bold text-white shadow-lg transition-all duration-200">
             <span className="size-1 rounded-full bg-white/60" />
             {product.badge}
           </span>

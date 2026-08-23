@@ -97,13 +97,13 @@ export default function Home() {
       </div>
 
       {/* HEADER */}
-      <header className="sticky top-0 z-40 bg-white shadow-sm">
+      <header className="sticky top-0 z-40 bg-white shadow-sm transition-all duration-300">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex min-h-16 items-center justify-between gap-4 py-3">
             {/* Logo */}
             <a
               href="#accueil"
-              className="flex shrink-0 items-center"
+              className="flex shrink-0 items-center transition-transform duration-200 hover:scale-105"
               aria-label="Trotti Parts Maroc"
             >
               <img
@@ -111,7 +111,7 @@ export default function Home() {
                 alt="Trotti Parts Maroc"
                 width={140}
                 height={80}
-                className="h-14 w-auto object-contain"
+                className="h-14 w-auto object-contain transition-opacity duration-300"
               />
             </a>
 
@@ -119,7 +119,7 @@ export default function Home() {
             <button
               type="button"
               onClick={handleSearchClick}
-              className="hidden flex-1 max-w-sm items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-500 transition hover:border-slate-300 hover:bg-white lg:flex"
+              className="hidden flex-1 max-w-sm items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-500 transition-all duration-200 hover:border-slate-300 hover:bg-white focus:border-[#087bb6] focus:ring-2 focus:ring-sky-200 lg:flex"
             >
               <Icon name="search" className="size-4 text-slate-400" />
               <span>Rechercher...</span>
@@ -131,7 +131,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={handleSearchClick}
-                className="grid size-10 place-items-center rounded-lg border border-slate-200 text-slate-700 transition hover:bg-slate-100 lg:hidden"
+                className="grid size-10 place-items-center rounded-lg border border-slate-200 text-slate-700 transition-all duration-200 hover:bg-slate-100 hover:border-slate-300 lg:hidden"
                 aria-label="Rechercher"
               >
                 <Icon name="search" className="size-5" />
@@ -141,12 +141,12 @@ export default function Home() {
               <button
                 type="button"
                 onClick={handleCartClick}
-                className="relative grid size-10 place-items-center rounded-lg border border-slate-200 text-[#075985] transition hover:bg-slate-100"
+                className="relative grid size-10 place-items-center rounded-lg border border-slate-200 text-[#075985] transition-all duration-200 hover:bg-slate-100 hover:border-slate-300"
                 aria-label={`Panier (${cartCount} articles)`}
               >
                 <Icon name="bag" className="size-5" />
                 {cartCount > 0 && (
-                  <span className="absolute -right-1 -top-1 inline-flex size-5 items-center justify-center rounded-full bg-[#1faa59] text-[10px] font-black text-white">
+                  <span className="absolute -right-1 -top-1 inline-flex size-5 items-center justify-center rounded-full bg-[#1faa59] text-[10px] font-black text-white animate-in scale-in-75 duration-200">
                     {cartCount}
                   </span>
                 )}
@@ -157,7 +157,7 @@ export default function Home() {
                 href={whatsappLink}
                 target="_blank"
                 rel="noreferrer"
-                className="hidden items-center gap-2 rounded-lg bg-[#1faa59] px-4 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-[#168a47] hover:shadow-lg sm:flex"
+                className="hidden items-center gap-2 rounded-lg bg-[#1faa59] px-4 py-2.5 text-sm font-bold text-white shadow-md transition-all duration-200 hover:bg-[#168a47] hover:shadow-lg hover:-translate-y-0.5 active:scale-95 sm:flex"
               >
                 <Icon name="whatsapp" className="size-4" />
                 <span className="hidden sm:inline">WhatsApp</span>
@@ -166,7 +166,7 @@ export default function Home() {
               {/* Mobile menu */}
               <button
                 type="button"
-                className="grid size-10 place-items-center rounded-lg border border-slate-200 text-slate-700 transition hover:bg-slate-100 lg:hidden"
+                className="grid size-10 place-items-center rounded-lg border border-slate-200 text-slate-700 transition-all duration-200 hover:bg-slate-100 hover:border-slate-300 lg:hidden"
                 aria-label="Menu"
               >
                 <Icon name="menu" className="size-5" />
@@ -180,10 +180,10 @@ export default function Home() {
               <a
                 key={item.label}
                 href={item.href}
-                className={`rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition ${
+                className={`rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
                   idx === 0
                     ? "bg-[#075985] text-white hover:bg-[#064b70]"
-                    : "text-[#075985] hover:bg-sky-50"
+                    : "text-[#075985] hover:bg-sky-50 hover:-translate-y-0.5"
                 }`}
               >
                 {item.label}
@@ -208,19 +208,19 @@ export default function Home() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             {/* Content */}
             <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#087dea]/20 border border-[#087dea]/40 px-4 py-2 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#087dea]/20 border border-[#087dea]/40 px-4 py-2 backdrop-blur-sm transition-all duration-300 hover:bg-[#087dea]/30">
                 <span className="size-2 rounded-full bg-[#1faa59]" />
                 <span className="text-xs font-bold text-[#087dea]">Spécialiste trottinettes électriques</span>
               </div>
 
               <h1 className="mt-6 text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
                 Pièces pour
-                <span className="mt-2 block bg-gradient-to-r from-[#087dea] to-[#00d4ff] bg-clip-text text-transparent">
+                <span className="mt-2 block bg-gradient-to-r from-[#087dea] to-[#00d4ff] bg-clip-text text-transparent transition-all duration-500">
                   trottinettes électriques
                 </span>
               </h1>
 
-              <p className="mt-6 text-lg leading-relaxed text-sky-100">
+              <p className="mt-6 text-lg leading-relaxed text-sky-100 transition-opacity duration-500">
                 Qualité, fiabilité et performance pour toutes les marques. Stock disponible à Mrirt avec livraison partout au Maroc.
               </p>
 
@@ -228,15 +228,15 @@ export default function Home() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#produits"
-                  className="inline-flex min-h-13 items-center justify-center gap-2 rounded-xl bg-[#087dea] px-6 py-3.5 text-base font-black text-white shadow-lg shadow-sky-900/30 transition hover:bg-[#0665c0] hover:shadow-xl hover:-translate-y-0.5 active:scale-95"
+                  className="inline-flex min-h-13 items-center justify-center gap-2 rounded-xl bg-[#087dea] px-6 py-3.5 text-base font-black text-white shadow-lg shadow-sky-900/30 transition-all duration-200 hover:bg-[#0665c0] hover:shadow-xl hover:-translate-y-0.5 active:scale-95"
                 >
                   Voir les produits
-                  <Icon name="arrow" className="size-4" />
+                  <Icon name="arrow" className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
 
                 <a
                   href="#categories"
-                  className="inline-flex min-h-13 items-center justify-center gap-2 rounded-xl border-2 border-white/30 bg-white/5 px-6 py-3.5 text-base font-black text-white backdrop-blur-sm transition hover:border-white/50 hover:bg-white/10"
+                  className="inline-flex min-h-13 items-center justify-center gap-2 rounded-xl border-2 border-white/30 bg-white/5 px-6 py-3.5 text-base font-black text-white backdrop-blur-sm transition-all duration-200 hover:border-white/50 hover:bg-white/10"
                 >
                   <Icon name="grid" className="size-4" />
                   Explorer catégories
@@ -245,30 +245,20 @@ export default function Home() {
 
               {/* Trust icons */}
               <div className="mt-10 grid gap-3">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex size-8 items-center justify-center rounded-full border border-[#087dea]/40 text-[#1faa59]">
-                    ✓
-                  </span>
-                  <span className="text-sm font-semibold text-white">
-                    Pièces originales et compatibles
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex size-8 items-center justify-center rounded-full border border-[#087dea]/40 text-[#1faa59]">
-                    ✓
-                  </span>
-                  <span className="text-sm font-semibold text-white">
-                    Garantie 6 à 12 mois
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex size-8 items-center justify-center rounded-full border border-[#087dea]/40 text-[#1faa59]">
-                    ✓
-                  </span>
-                  <span className="text-sm font-semibold text-white">
-                    Expédition rapide 24h-48h
-                  </span>
-                </div>
+                {[
+                  "Pièces originales et compatibles",
+                  "Garantie 6 à 12 mois",
+                  "Expédition rapide 24h-48h"
+                ].map((text, idx) => (
+                  <div key={idx} className="flex items-center gap-3 transition-all duration-300 hover:translate-x-1">
+                    <span className="inline-flex size-8 items-center justify-center rounded-full border border-[#087dea]/40 text-[#1faa59] transition-all duration-200 group-hover:scale-110">
+                      ✓
+                    </span>
+                    <span className="text-sm font-semibold text-white">
+                      {text}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -279,11 +269,11 @@ export default function Home() {
                 alt="Trottinette électrique"
                 width={500}
                 height={500}
-                className="h-full w-full object-contain drop-shadow-2xl"
+                className="h-full w-full object-contain drop-shadow-2xl transition-transform duration-700 hover:scale-105"
               />
 
               {/* Floating cards */}
-              <div className="absolute bottom-8 left-8 rounded-xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-md">
+              <div className="absolute bottom-8 left-8 rounded-xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:-translate-y-1">
                 <p className="text-xs font-bold text-[#1faa59]">✓ EN STOCK</p>
                 <p className="mt-1 text-sm font-black text-white">Mrirt · Maroc</p>
               </div>
@@ -341,23 +331,26 @@ export default function Home() {
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4">
-          {categories.map((category) => (
+          {categories.map((category, idx) => (
             <a
               key={category.name}
               href="#produits"
-              className="group flex flex-col items-start rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg sm:p-6"
+              className="group flex flex-col items-start rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-2 hover:border-sky-300 hover:shadow-lg sm:p-6"
+              style={{
+                animation: `fadeInUp 400ms ease-out ${idx * 50}ms both`
+              }}
             >
               <span
-                className={`inline-flex size-12 items-center justify-center rounded-xl ${category.color} text-[#075985] transition duration-300 group-hover:scale-110`}
+                className={`inline-flex size-12 items-center justify-center rounded-xl ${category.color} text-[#075985] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}
               >
                 <Icon name={category.icon} className="size-6" />
               </span>
 
-              <h3 className="mt-4 text-sm font-black text-slate-900 sm:text-base">
+              <h3 className="mt-4 text-sm font-black text-slate-900 transition-colors duration-200 group-hover:text-[#075985] sm:text-base">
                 {category.name}
               </h3>
 
-              <p className="mt-2 text-xs font-medium text-slate-500">
+              <p className="mt-2 text-xs font-medium text-slate-500 transition-colors duration-200 group-hover:text-[#075985]">
                 Explorer →
               </p>
             </a>
