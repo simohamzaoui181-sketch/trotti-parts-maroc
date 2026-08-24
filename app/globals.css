@@ -347,3 +347,132 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* Header premium animations */
+@keyframes badge-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-badge-pop {
+  animation: badge-pop 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-fade-in {
+  animation: fade-in 200ms ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Header scroll transition */
+header {
+  transition: box-shadow 200ms ease-out, background-color 200ms ease-out;
+}
+
+/* Premium navigation link hover effect */
+header nav a {
+  position: relative;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0a7cc4, #1faa59);
+  border-radius: 1px;
+  transform: translateX(-50%);
+  transition: width 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  header nav a:hover::after {
+    width: 60%;
+    opacity: 1;
+  }
+}
+
+/* Search button focus ring enhancement */
+header button[aria-label="Rechercher une pièce"]:focus-visible {
+  box-shadow: 0 0 0 3px rgba(10, 124, 196, 0.15);
+}
+
+/* Cart button hover subtle lift */
+header button[aria-label^="Panier"]:hover {
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  header button[aria-label^="Panier"]:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* WhatsApp CTA hover */
+header a[aria-label="Commander via WhatsApp"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(31, 170, 89, 0.25);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  header a[aria-label="Commander via WhatsApp"]:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Mobile menu backdrop */
+#mobile-menu .bg-black\/30 {
+  animation: fade-in 200ms ease-out;
+}
+
+/* Reduced motion for header animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-badge-pop,
+  .animate-fade-in,
+  .animate-slide-in-right {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  
+  header nav a::after {
+    transition-duration: 0.01ms !important;
+  }
+  
+  header {
+    transition-duration: 0.01ms !important;
+  }
+}

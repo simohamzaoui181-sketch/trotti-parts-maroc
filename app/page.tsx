@@ -17,6 +17,8 @@ const navigation = [
 
 export default function Home() {
   const [cartCount, setCartCount] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     function handleCartUpdate(event: Event) {
@@ -29,6 +31,15 @@ export default function Home() {
     return () => {
       window.removeEventListener("cart-updated", handleCartUpdate);
     };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   function handleSearchClick() {
@@ -57,37 +68,25 @@ export default function Home() {
     });
   }
 
-    const whatsappLink = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
+  const whatsappLink = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
     "Bonjour TROTTI PARTS MAROC, je souhaite commander des pièces."
   )}`;
 
   return (
     <main className="overflow-hidden bg-[#f8fafc] text-slate-950">
-      {/* OPTIMIZED TOP BAR - Simplified and Professional */}
-      <div className="hidden border-b border-neutral-200 bg-gradient-to-r from-neutral-50 to-neutral-100 lg:block">
-        <div className="mx-auto max-w-7xl px-8 py-3">
-          <div className="flex items-center justify-between gap-6 text-xs font-semibold text-neutral-600">
-            <div className="flex items-center gap-3">
-              <Icon name="truck" className="size-4 text-primary" />
-              <span>Livraison 24h-48h au Maroc</span>
-            </div>
-            <span className="text-neutral-300">•</span>
-            <div className="flex items-center gap-3">
-              <Icon name="check" className="size-4 text-accent-success" />
-              <span>Pièces testées & garanties</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* PREMIUM HEADER - Streamlined and Professional */}
-      <header className="sticky top-0 z-40 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md">
+      {/* PREMIUM HEADER - Professional E-commerce Design */}
+      <header
+        className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-200 ${
+          isScrolled ? "shadow-md" : "shadow-sm"
+        }`}
+        role="banner"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex min-h-14 items-center justify-between gap-6 py-2.5">
-            {/* Logo */}
+          <div className="flex min-h-[56px] items-center justify-between gap-4 sm:gap-6">
+            {/* Logo - Left */}
             <a
               href="#accueil"
-              className="flex shrink-0 items-center transition-all duration-200 hover:scale-105"
+              className="flex shrink-0 items-center transition-transform duration-200 hover:scale-[1.02]"
               aria-label="Trotti Parts Maroc - Accueil"
             >
               <img
@@ -95,56 +94,53 @@ export default function Home() {
                 alt="Trotti Parts Maroc"
                 width={140}
                 height={80}
-                className="h-12 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
             </a>
 
-            {/* Desktop Navigation - Centered */}
-            <nav className="hidden flex-1 lg:flex items-center justify-center gap-1">
-              {navigation.slice(1, 4).map((item) => (
+            {/* Desktop Navigation - Center */}
+            <nav
+              className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center gap-0.5"
+              role="navigation"
+              aria-label="Navigation principale"
+            >
+              {navigation.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="px-3 py-2 text-xs font-semibold text-neutral-600 transition-all duration-200 hover:text-primary hover:bg-primary/5 rounded-lg"
+                  className="px-3.5 py-2 text-sm font-medium text-neutral-700 transition-all duration-150 hover:text-primary hover:bg-primary/5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
 
-            {/* Search - Desktop Only */}
-            <button
-              type="button"
-              onClick={handleSearchClick}
-              className="hidden lg:flex flex-1 max-w-xs items-center gap-2 rounded-lg border border-neutral-200 bg-neutral-50 px-3.5 py-2 text-xs text-neutral-500 transition-all duration-200 hover:border-neutral-300 hover:bg-white focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:border-primary"
-            >
-              <Icon name="search" className="size-4 text-neutral-400" />
-              <span>Rechercher une pièce...</span>
-            </button>
-
-            {/* Action Buttons */}
-            <div className="flex items-center gap-2 sm:gap-2.5">
-              {/* Mobile Search */}
+            {/* Search - Desktop */}
+            <div className="hidden lg:flex lg:flex-1 lg:max-w-md lg:justify-end">
               <button
                 type="button"
                 onClick={handleSearchClick}
-                className="grid size-9 place-items-center rounded-lg border border-neutral-200 text-neutral-600 transition-all duration-200 hover:bg-neutral-50 hover:border-neutral-300 lg:hidden"
-                aria-label="Rechercher"
+                className="w-full flex items-center gap-2.5 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-2 text-sm text-neutral-500 transition-all duration-150 hover:border-neutral-300 hover:bg-white hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary"
+                aria-label="Rechercher une pièce"
               >
-                <Icon name="search" className="size-4.5" />
+                <Icon name="search" className="size-4.5 text-neutral-400 shrink-0" aria-hidden="true" />
+                <span className="truncate">Rechercher une pièce...</span>
               </button>
+            </div>
 
+            {/* Action Buttons - Right */}
+            <div className="flex items-center gap-2">
               {/* Cart Button */}
               <button
                 type="button"
                 onClick={handleCartClick}
-                className="relative grid size-9 place-items-center rounded-lg border border-neutral-200 text-primary transition-all duration-200 hover:bg-primary/5 hover:border-primary/30 font-semibold"
-                aria-label={`Panier (${cartCount} ${cartCount > 1 ? 'articles' : 'article'})`}
+                className="relative flex size-10 items-center justify-center rounded-lg border border-neutral-200 text-primary transition-all duration-150 hover:bg-primary/5 hover:border-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                aria-label={`Panier (${cartCount} ${cartCount > 1 ? "articles" : "article"})`}
               >
-                <Icon name="bag" className="size-4.5" />
+                <Icon name="bag" className="size-5" aria-hidden="true" />
                 {cartCount > 0 && (
-                  <span className="absolute -right-1.5 -top-1.5 inline-flex size-5 items-center justify-center rounded-full bg-accent-success text-[10px] font-black text-white shadow-sm">
-                    {cartCount}
+                  <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-accent-success px-1.5 text-[10px] font-bold text-white shadow-sm animate-badge-pop">
+                    {cartCount > 99 ? "99+" : cartCount}
                   </span>
                 )}
               </button>
@@ -154,23 +150,113 @@ export default function Home() {
                 href={whatsappLink}
                 target="_blank"
                 rel="noreferrer"
-                className="hidden items-center gap-2 rounded-lg bg-accent-success px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:bg-accent-success-dark hover:shadow-md hover:-translate-y-0.5 active:scale-95 sm:flex"
+                className="hidden sm:flex items-center gap-2 rounded-lg bg-accent-success px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-accent-success-dark hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-success focus-visible:ring-offset-2"
+                aria-label="Commander via WhatsApp"
               >
-                <Icon name="whatsapp" className="size-4" />
-                <span className="hidden sm:inline">Commander</span>
+                <Icon name="whatsapp" className="size-4.5" aria-hidden="true" />
+                <span>Commander</span>
               </a>
 
               {/* Mobile Menu Button */}
               <button
                 type="button"
-                className="grid size-9 place-items-center rounded-lg border border-neutral-200 text-neutral-600 transition-all duration-200 hover:bg-neutral-50 hover:border-neutral-300 lg:hidden"
-                aria-label="Navigation"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="flex size-10 items-center justify-center rounded-lg border border-neutral-200 text-neutral-700 transition-all duration-150 hover:bg-neutral-50 hover:border-neutral-300 lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
               >
-                <Icon name="menu" className="size-4.5" />
+                <Icon name={isMenuOpen ? "close" : "menu"} className="size-5" aria-hidden="true" />
               </button>
             </div>
           </div>
         </div>
+
+        {/* Mobile Search - Below header on mobile */}
+        <div className="lg:hidden border-t border-neutral-100 px-4 py-3 bg-neutral-50">
+          <button
+            type="button"
+            onClick={handleSearchClick}
+            className="w-full flex items-center gap-2.5 rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-500 transition-all duration-150 hover:border-neutral-300 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary"
+            aria-label="Rechercher une pièce"
+          >
+            <Icon name="search" className="size-4.5 text-neutral-400 shrink-0" aria-hidden="true" />
+            <span className="truncate">Rechercher une pièce...</span>
+          </button>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div
+            id="mobile-menu"
+            className="lg:hidden fixed inset-0 z-50 bg-black/30 backdrop-blur-sm animate-fade-in"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu de navigation"
+          >
+            <div className="absolute right-0 top-0 h-full w-full max-w-sm bg-white shadow-xl animate-slide-in-right" role="document">
+              <div className="flex h-full flex-col">
+                {/* Mobile Menu Header */}
+                <div className="flex items-center justify-between border-b border-neutral-100 px-4 py-4">
+                  <span className="text-sm font-semibold text-neutral-900">Navigation</span>
+                  <button
+                    type="button"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex size-9 items-center justify-center rounded-lg text-neutral-500 transition-colors hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    aria-label="Fermer le menu"
+                  >
+                    <Icon name="close" className="size-5" aria-hidden="true" />
+                  </button>
+                </div>
+
+                {/* Mobile Navigation Links */}
+                <nav className="flex-1 overflow-y-auto px-4 py-6" role="navigation" aria-label="Menu mobile">
+                  <ul className="space-y-1">
+                    {navigation.map((item) => (
+                      <li key={item.label}>
+                        <a
+                          href={item.href}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="flex items-center gap-3 rounded-lg px-3 py-3.5 text-base font-medium text-neutral-700 transition-all duration-150 hover:bg-primary/5 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                        >
+                          <Icon name="chevron-right" className="size-5 text-neutral-300 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                          <span>{item.label}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+
+                {/* Mobile CTA Actions */}
+                <div className="border-t border-neutral-100 p-4 space-y-3">
+                  <button
+                    type="button"
+                    onClick={handleCartClick}
+                    className="w-full flex items-center justify-center gap-2 rounded-lg border border-neutral-200 bg-white px-4 py-3 text-base font-medium text-primary transition-all duration-150 hover:bg-primary/5 hover:border-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  >
+                    <Icon name="bag" className="size-5" aria-hidden="true" />
+                    <span>Mon panier</span>
+                    {cartCount > 0 && (
+                      <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-accent-success px-1.5 text-[10px] font-bold text-white">
+                        {cartCount > 99 ? "99+" : cartCount}
+                      </span>
+                    )}
+                  </button>
+
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full flex items-center justify-center gap-2 rounded-lg bg-accent-success px-4 py-3 text-base font-semibold text-white shadow-sm transition-all duration-150 hover:bg-accent-success-dark hover:shadow-md active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-success focus-visible:ring-offset-2"
+                  >
+                    <Icon name="whatsapp" className="size-5" aria-hidden="true" />
+                    <span>Commander via WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* HERO - PREMIUM LUXURY DESIGN */}
@@ -276,7 +362,7 @@ export default function Home() {
                 {[
                   { icon: "check", text: "100% pièces testées & garanties", glow: true },
                   { icon: "truck", text: "Livraison ultra-rapide 24h-48h", glow: true },
-                  { icon: "pin", text: "Stock premium à Mrirt", glow: true }
+                  { icon: "shield", text: "Qualité premium certifiée", glow: true }
                 ].map(({ icon, text, glow }, idx) => (
                   <div key={idx} className="flex items-center gap-4 p-3 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300 group" style={{
                     animation: `fadeInUp 500ms ease-out ${idx * 100}ms both`
@@ -337,10 +423,10 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { icon: "box", title: "+1500 pièces", desc: "En stock à Mrirt", delay: 0 },
+            { icon: "box", title: "+1500 pièces", desc: "Disponibilité immédiate", delay: 0 },
             { icon: "check", title: "100% testées", desc: "Qualité vérifiée", delay: 100 },
             { icon: "truck", title: "Livraison rapide", desc: "24h-48h au Maroc", delay: 200 },
-          ].map(({ icon, title, desc, delay }, idx) => (
+          ].map(({ icon, title, desc, delay }) => (
             <div
               key={title}
               className="group relative overflow-hidden rounded-xl border border-neutral-100 p-6 transition-all duration-300 hover:border-neutral-200 hover:shadow-2xl hover:-translate-y-2"
