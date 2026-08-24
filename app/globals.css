@@ -188,6 +188,105 @@ button, a {
   }
 }
 
+/* Premium glow animations */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(10, 124, 196, 0.3), 0 0 40px rgba(10, 124, 196, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(10, 124, 196, 0.5), 0 0 60px rgba(10, 124, 196, 0.2);
+  }
+}
+
+@keyframes glowText {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(10, 124, 196, 0.3), 0 0 20px rgba(10, 124, 196, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(10, 124, 196, 0.6), 0 0 40px rgba(10, 124, 196, 0.2);
+  }
+}
+
+/* Hero shapes animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Wave animation */
+@keyframes wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Shine effect */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Card 3D tilt animation */
+@keyframes tilt {
+  0%, 100% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+/* Gradient shift animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Icon glow */
+@keyframes iconGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0px rgba(31, 170, 89, 0)) brightness(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(31, 170, 89, 0.6)) brightness(1.1);
+  }
+}
+
 /* Page load animations */
 @media (prefers-reduced-motion: no-preference) {
   body > main {
